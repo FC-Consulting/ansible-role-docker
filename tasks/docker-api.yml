@@ -11,7 +11,7 @@
 - name: "{{ ansible_distribution | lower }} | {{ ansible_distribution_release }} - Docker API is not exposed"
   ansible.builtin.replace:
     path: /lib/systemd/system/docker.service
-    regexp: '-H={{ docker_api_scheme }}://0.0.0.0:{{ docker_api_port }}'
+    regexp: '\s+-H={{ docker_api_scheme }}://0.0.0.0:{{ docker_api_port }}'
     replace: ''
   when: not docker_api_expose
   notify: restart docker
