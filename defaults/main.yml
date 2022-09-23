@@ -17,6 +17,9 @@ docker_package_state: present
 docker_service_state: started
 docker_service_enabled: true
 docker_restart_handler_state: restarted
+docker_api_expose: false
+docker_api_port: 2376
+docker_api_scheme: tcp
 
 # Used only for Debian/Ubuntu. Switch 'stable' to 'edge' if needed.
 docker_apt_release_channel: stable

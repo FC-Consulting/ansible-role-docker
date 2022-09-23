@@ -2,7 +2,7 @@
 
 - include_tasks: setup-Debian.yml
 
-- name: "Install Docker"
+- name: "{{ ansible_distribution | lower }} | {{ ansible_distribution_release }} - Install Docker"
   package:
     name:
       - "{{ docker_package }}"
@@ -26,3 +26,5 @@
 
 - include_tasks: docker-users.yml
   when: docker_users | length > 0
+
+- include_tasks: docker-api.yml
